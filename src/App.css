@@ -1,0 +1,182 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.App-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.App-form label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.App-input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.App-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.App-button:hover {
+  background-color: #0056b3;
+}
+
+.App-response {
+  margin-top: 20px;
+  width: 98%;
+  text-align: left;
+}
+
+.App-response p {
+  font-size: 16px;
+  color: #333;
+}
+
+.response-card {
+  text-align: left;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  max-height: 300px; /* Limit the height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.markdown-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.mode-toggle {
+  float: right;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.light-mode .mode-toggle {
+  color: #333;
+}
+
+.dark-mode .mode-toggle {
+  color: #fff;
+}
+
+/* Light and Dark Mode Styles */
+.light-mode .card {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-mode .card {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .App-input {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #777;
+}
+
+.dark-mode .App-button,
+.dark-mode .mode-toggle {
+  background-color: #555;
+}
+
+.dark-mode .App-button:hover,
+.dark-mode .mode-toggle:hover {
+  background-color: #777;
+}
+
+.dark-mode .response-card {
+  background-color: #444;
+  border-color: #666;
+}
+
+.dark-mode .markdown-content {
+  color: #fff;
+}
+
+.dark-mode .App-response p {
+  color: #fff;
+}
+
+.dark-mode .card-title {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 15px;
+  }
+
+  .App-input,
+  .App-button,
+  .mode-toggle {
+    font-size: 14px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .response-card {
+    max-height: 200px; /* Adjust height for smaller screens */
+  }
+}
