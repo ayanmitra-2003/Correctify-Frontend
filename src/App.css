@@ -54,9 +54,10 @@ body {
 /* Form styling */
 .App-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Align elements horizontally */
   align-items: center;
   margin-top: 20px;
+  justify-content: center;
 }
 
 .App-form label {
@@ -66,7 +67,7 @@ body {
 }
 
 .App-input {
-  width: 90%;
+  width: 70%;
   max-width: 600px;
   padding: 12px;
   font-size: 16px;
@@ -74,7 +75,7 @@ body {
   color: var(--input-text-color);
   border: 1px solid var(--input-border-color);
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-right: 10px; /* Space between input and button */
   transition: all 0.3s ease;
 }
 
@@ -93,6 +94,26 @@ body {
 .App-button:hover {
   background-color: var(--button-hover-bg-color);
   transform: translateY(-2px);
+}
+
+/* Mic button styling */
+.mic-button {
+  padding: 10px;
+  background-color: var(--button-bg-color);
+  border-radius: 50%;
+  color: var(--button-text-color);
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mic-button:hover {
+  background-color: var(--button-hover-bg-color);
+  transform: translateY(-2px);
+}
+
+.App-form button:last-child {
+  margin-left: 10px; /* Space between the "Correct it" button and mic button */
 }
 
 /* Response area styling */
@@ -216,5 +237,11 @@ body {
 
   .response-card {
     max-height: 200px;
+  }
+
+  /* For mic button */
+  .mic-button {
+    font-size: 20px;
+    padding: 8px;
   }
 }

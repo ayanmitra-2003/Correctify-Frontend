@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Markdown from 'react-markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
 // Function to make the API request
@@ -49,6 +49,29 @@ const App = () => {
     setIsLightMode(prevMode => !prevMode);
   };
 
+  // Microphone functionality
+  const startListening = () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert("Sorry, your browser doesn't support speech recognition.");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      const spokenText = event.results[0][0].transcript;
+      setPrompt(spokenText);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+    };
+
+    recognition.start();
+  };
+
   return (
     <div className={`App ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <div className='card'>
@@ -68,6 +91,9 @@ const App = () => {
           />
           <button className='App-button' type='submit'>Correct it</button>
         </form>
+        <button className='App-button mic-button' onClick={startListening}>
+          <FontAwesomeIcon icon={faMicrophone} /> Speak
+        </button>
         <section className='App-response'>
           {mutation.isLoading && <p>Generating your content...</p>}
           {mutation.isError && <p>{mutation.error.message}</p>}
