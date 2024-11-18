@@ -9,13 +9,13 @@ import './App.css';
 // Function to make the API request
 const makeAPIRequest = async ({ prompt }) => {
   const modifiedPrompt = `${prompt}. Correct the statement grammatically.`;
-  const res = await axios.post("http://localhost:5000/generate", { prompt: modifiedPrompt });
+  const res = await axios.post("https://correctify-backend.netlify.app/generate", { prompt: modifiedPrompt });
   return res.data;
 };
 
 // Function to fetch history
 const fetchHistoryData = async () => {
-  const res = await axios.get("http://localhost:5000/history");
+  const res = await axios.get("https://correctify-backend.netlify.app/history");
   return res.data;
 };
 
